@@ -3,25 +3,26 @@ plugins {
 }
 
 repositories {
-    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+    maven { url 'https://repo.destroystokyo.com/repository/maven-public/' }
     maven { url 'https://libraries.minecraft.net/' }
+    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
 }
 
 dependencies {
     compile project(':common')
 
-    compileOnly 'org.spigotmc:spigot-api:1.14-R0.1-SNAPSHOT'
+    compileOnly 'com.destroystokyo.paper:paper-api:1.14-R0.1-SNAPSHOT'
     compileOnly 'net.kyori:text-adapter-bukkit:3.0.2'
     compileOnly 'me.lucko:commodore:1.3'
     compileOnly('net.milkbowl.vault:VaultAPI:1.6') {
-        exclude(module: 'bukkit')
+        exclude(module: 'paper')
     }
     compileOnly 'lilypad.client.connect:api:0.0.1-SNAPSHOT'
 
     // migration plugins
     compileOnly 'org.tyrannyofheaven.bukkit:zPermissions:1.3'
     compileOnly('ru.tehkode:PermissionsEx:1.23.5') {
-        exclude(module: 'bukkit')
+        exclude(module: 'paper')
         exclude(module: 'updater')
         exclude(module: 'commons-dbcp')
         exclude(module: 'AccountsClient')
@@ -30,7 +31,7 @@ dependencies {
     compileOnly 'org.anjocaido:GroupManager:1.4'
     compileOnly 'de.bananaco:bpermissions-api:2.12'
     compileOnly('com.platymuus:bukkit-permissions:2.5') {
-        exclude(module: 'bukkit')
+        exclude(module: 'paper')
         exclude(module: 'metrics')
     }
 }
@@ -43,7 +44,7 @@ processResources {
 }
 
 shadowJar {
-    archiveName = "LuckPerms-Bukkit-${project.ext.fullVersion}.jar"
+    archiveName = "LuckPerms-Paper-${project.ext.fullVersion}.jar"
 
     dependencies {
         include(dependency('me.lucko.luckperms:.*'))

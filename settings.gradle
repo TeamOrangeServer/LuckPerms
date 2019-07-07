@@ -11,5 +11,6 @@ include (
         'bungee',
         'sponge', 'sponge:sponge-service', 'sponge:sponge-service-api6', 'sponge:sponge-service-api7',
         'nukkit',
-        'velocity'
+        'velocity',
+        'paper'
 )

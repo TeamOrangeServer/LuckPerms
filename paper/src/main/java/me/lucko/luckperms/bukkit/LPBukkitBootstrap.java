@@ -33,6 +33,7 @@ import me.lucko.luckperms.common.plugin.bootstrap.LuckPermsBootstrap;
 import me.lucko.luckperms.common.plugin.logging.JavaPluginLogger;
 import me.lucko.luckperms.common.plugin.logging.PluginLogger;
 
+import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.Server;
 import org.bukkit.command.ConsoleCommandSender;
@@ -47,7 +48,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.stream.Stream;
 
 /**
- * Bootstrap plugin for LuckPerms running on Bukkit.
+ * Bootstrap plugin for LuckPerms running on Paper.
  */
 public class LPBukkitBootstrap extends JavaPlugin implements LuckPermsBootstrap {
 
@@ -157,6 +158,8 @@ public class LPBukkitBootstrap extends JavaPlugin implements LuckPermsBootstrap 
         } finally {
             this.enableLatch.countDown();
         }
+
+        getLogger().info(ChatColor.GREEN + "aki LuckPerms,start now");
     }
 
     @Override
@@ -167,6 +170,8 @@ public class LPBukkitBootstrap extends JavaPlugin implements LuckPermsBootstrap 
 
         this.plugin.disable();
         this.serverStarting = true;
+
+        getLogger().info(ChatColor.RED + "aki LuckPerms,shutdown now");
     }
 
     @Override
