@@ -1,0 +1,27 @@
+name: LuckPerms
+version: ${pluginVersion}
+description: A permissions plugin
+author: Luck
+website: https://luckperms.github.io
+
+main: me.lucko.luckperms.bukkit.LPBukkitBootstrap
+load: STARTUP
+
+# Mark the plugin as 1.13 compatible to avoid CB having to perform quite as much unnecessary
+# remapping when the plugin is loaded. Note that despite what this setting might otherwise imply,
+# LP is still compatible with pre-1.13 releases.
+api-version: 1.13
+
+# This means that all plugins that (soft-)depend on Vault, depend on LuckPerms too.
+# It in turn fixes issues where plugins using Vault cache the provided instance
+# when their plugin enables, or when they check for the presence of a service
+# provider, before LuckPerms has enabled.
+loadbefore: [Vault]
+
+# Soft depend on LilyPad for messaging service impl
+softdepend: [LilyPad-Connect]
+
+commands:
+  luckperms:
+    description: Manage permissions
+    aliases: [lp, perm, perms, permission, permissions]
